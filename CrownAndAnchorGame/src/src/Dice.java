@@ -14,7 +14,8 @@ public class Dice {
 		// HOANG, Van Cuong. Created on 11/11/2017
 		// This should modify the current DiceValue before returning it
 		
-		return DiceValue.getRandom();
+		value = DiceValue.getRandom();
+		return value;
 	}		
 	
 	public String toString() {
