@@ -28,9 +28,10 @@ public class Game {
 		if (player == null) throw new IllegalArgumentException("Player cannot be null.");
 		if (pick == null) throw new IllegalArgumentException("Pick cannot be negative.");
 		if (bet < 0) throw new IllegalArgumentException("Bet cannot be negative.");
-		
+		// HOANG, Van Cuong - code added to test incorrect balance increase bug
+		System.out.println("----GAME.JAVA: Balance before betting an amount of " + bet + ": " + player.getBalance());
 		player.takeBet(bet);
-		    
+		System.out.println("----GAME.JAVA: Balance after betting "+ bet + ": " + player.getBalance());    
 		int matches = 0;
 		for ( Dice d : dice) {
 			d.roll();
@@ -38,13 +39,17 @@ public class Game {
 				matches += 1;
 			}
 		}
-		
+		System.out.println("----GAME.JAVA: number of match: " + matches);
 		int winnings = matches * bet;
-
-		if (matches > 0) {			
+		
+		if (matches > 0) {
+			// Player should have his bet returned here because he wins
+			System.out.println("----GAME.JAVA: Player wins, his bet of " + bet + " should be returned to his balance here!");
 			player.receiveWinnings(winnings);
+			System.out.println("----GAME.JAVA: Player received winnings of " + winnings);
+			System.out.println("----GAME.JAVA: Now player has balance of: " + player.getBalance());
 		}
         return winnings;		
 	}
-	
 }
+
