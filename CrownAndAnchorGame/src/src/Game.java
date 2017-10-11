@@ -33,8 +33,11 @@ public class Game {
 		player.takeBet(bet);
 		//System.out.println("----GAME.JAVA: Balance after betting "+ bet + ": " + player.getBalance());    
 		int matches = 0;
+		System.out.println("---Bug 3 detector: Rolling new dices");
 		for ( Dice d : dice) {
+			System.out.println("--- Dice value before roll: " + d.getValue());
 			d.roll();
+			System.out.println("--- Dice value after roll: " + d.getValue());
 			if (d.getValue().equals(pick)) { 
 				matches += 1;
 			}
