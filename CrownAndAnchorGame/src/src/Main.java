@@ -44,8 +44,14 @@ public class Main {
                    
                 	System.out.printf("Turn %d: %s bet %d on %s\n",
                 			turn, player.getName(), bet, pick); 
-                	
+                	// Author: HOANG, Van Cuong
+                	// Testing incorrect balance increase on winning
+                	System.out.println("----- Main.java: Start calculating winnings..." );
+                	System.out.println("----- Main.java: Balance before play: " + player.getBalance());
                 	int winnings = game.playRound(player, pick, bet);
+                	System.out.println("----- Main.java: Winning amount: " + winnings);
+                	System.out.println("----- Main.java: Balance after play: " + player.getBalance());
+                	
                     cdv = game.getDiceValues();
                     
                     System.out.printf("Rolled %s, %s, %s\n",
